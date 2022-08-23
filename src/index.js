@@ -15,9 +15,25 @@ const onClickaAdd = () => {
   li.innerText = inputText;
   console.log(li);
 
+  //button(done)tag生成
+  const completeButton = document.createElement("button");
+  completeButton.innerText = "done";
+  completeButton.addEventListener("click", () => {
+    alert("done");
+  });
+
+  //button(remove)tag生成
+  const removeButton = document.createElement("button");
+  removeButton.innerText = "remove";
+  removeButton.addEventListener("click", () => {
+    const removeTarget = removeButton.parentNode;
+    document.getElementById("incomplete-list").removeChild(removeTarget);
+  });
+
   // divタグの子要素にliタグを入れる
   div.appendChild(li);
-  console.log(div);
+  div.appendChild(completeButton);
+  div.appendChild(removeButton);
 
   // ulタグの子要素にdivタグを入れる;
   document.getElementById("incomplete-list").appendChild(div);
